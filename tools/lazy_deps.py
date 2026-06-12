@@ -180,6 +180,13 @@ LAZY_DEPS: dict[str, tuple[str, ...]] = {
     # call site uses prompt=False so it can never raise a blocking input()
     # prompt mid-session (#40490).
     "tool.vision": ("Pillow==12.2.0",),
+
+    # ─── Plugins ───────────────────────────────────────────────────────────
+    # Blockchain plugin — EVM wallets / transfers / swaps / contract calls.
+    # web3 pulls eth-account transitively; both pinned to match pyproject's
+    # [blockchain] extra. Lazy-installed when the plugin registers (see
+    # plugins/blockchain/__init__.py).
+    "plugin.blockchain": ("web3==7.16.0", "eth-account==0.13.7"),
 }
 
 

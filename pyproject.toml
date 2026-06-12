@@ -191,6 +191,13 @@ acp = ["agent-client-protocol==0.9.0"]
 # installs (see [all] policy comment below).
 mistral = ["mistralai==2.4.8"]
 bedrock = ["boto3==1.42.89"]
+# Blockchain plugin (plugins/blockchain) — EVM wallets, transfers, swaps,
+# contract calls. web3 pulls eth-account transitively; pinned exact. Like
+# other provider-specific backends this is opt-in and lazy-installed via
+# tools/lazy_deps.py ("plugin.blockchain") at first registration, so it is
+# NOT added to [all] — a future quarantined web3 release can't break fresh
+# installs. Regenerate uv.lock in lockstep when bumping these pins.
+blockchain = ["web3==7.16.0", "eth-account==0.13.7"]
 azure-identity = ["azure-identity==1.25.3"]
 termux = [
   # Baseline Android / Termux path for reliable fresh installs.
@@ -271,6 +278,7 @@ all = [
 
 [project.scripts]
 hermes = "hermes_cli.main:main"
+tianlong = "hermes_cli.main:main"
 hermes-agent = "run_agent:main"
 hermes-acp = "acp_adapter.entry:main"
 
