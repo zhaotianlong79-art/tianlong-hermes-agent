@@ -1,0 +1,12 @@
+name: blockchain
+version: 1.0.0
+description: "EVM blockchain tools — wallets (encrypted keystores), native/ERC-20 transfers, contract read/write/deploy, and tx lookup across Ethereum, Base, Arbitrum, Optimism, Polygon, BNB, Avalanche + testnets. Real signing via eth-account; every asset-changing action is gated by a two-step CONFIRM flow. Requires HERMES_WALLET_PASSWORD."
+author: kunming
+kind: backend
+provides_tools:
+  - blockchain_wallet
+  - blockchain_network
+  - blockchain_transfer
+  - blockchain_swap
+  - blockchain_contract
+  - blockchain_tx
